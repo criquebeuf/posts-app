@@ -98,12 +98,12 @@ function Post({post, onDeletePost}) {
     <>
       <div className='post'>
       <div className='post-actions'>
-          <button onClick={() => onDeletePost(post.id)}>
+          <span className="delete" onClick={() => onDeletePost(post.id)}>
           x
-          </button>
+          </span>
         </div>
         <div className='title'>{post.title}</div>
-        <div>{post.description}</div>
+        <div className='description'>{post.description}</div>
         <div className='post-actions'>
           <button className='like' onClick={handleLikeClick}>
             {likes ? <span style={{color: 'pink'}}>❤</span> : <span style={{color: 'white'}}>❤</span>}

@@ -6,6 +6,10 @@
 
 }
 
+body {
+  margin: 0 auto;
+}
+
 .App {
   color: var(--blue);
   padding: 20px;
@@ -16,10 +20,10 @@
   background-color: var(--white);
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 33%;
   border: 1px solid var(--green);
   border-radius: 8px;
   padding: 16px;
+  width: 400px
 }
 
 ul {
@@ -30,12 +34,18 @@ ul {
   font-weight: bold;
 }
 
+.description {
+  padding-bottom: 16px;
+}
+
 input {
   background-color: var(--white);
-  width: 33%;
   border: 1px solid var(--green);
   border-radius: 8px;
-  padding: 8px;
+  padding: 8px 16px;
+  width: 400px;
+  color: var(--blue);
+
 }
 input.description {
   height: 64px;
@@ -72,12 +82,13 @@ button:hover {
 
 .delete {
   border: 1px solid var(--green);
-  padding: 1px 4px;
+  padding: 2px 4px;
   background-color: white;
   font-size: 10px;
   font-weight: bolder;
-
+  border-radius: 4px;
 }
+
 .delete:hover {
   cursor: pointer;
   background-color: var(--green);
