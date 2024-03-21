@@ -1,13 +1,61 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --blue: #006d77;
+  --green: #83c5be;
+  --white: #edf6f9;
+  --pink: #ffddd2;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  color: var(--blue);
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.post {
+  background-color: var(--white);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 33%;
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 2px 2px 2px 0 var(--pink);
+}
+
+ul {
+  padding: 0
+}
+
+.title {
+  font-weight: bold;
+}
+
+input {
+  width: 33%;
+}
+input.description {
+  height: 64px;
+}
+
+.input-block {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: var(--blue);
+  border-radius: 8px;
+  border: none !important;
+  box-shadow: 2px 2px 2px 0 var(--pink);
+  color: var(--white);
+  font-size: 16px;
+  padding: 8px 16px
+}
+
+button:hover {
+  background-color: var(--green);
+}
+
+.placeholder {
+  color: rgb(224, 218, 218);
 }
