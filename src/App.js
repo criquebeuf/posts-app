@@ -17,6 +17,9 @@ App.propTypes = {
   age: PropTypes.number.isRequired
 }
 
+
+// Make min and max characters posts!
+
 // EXAMPLE IN RUBY
 // validates :status, inclusion: { in: STATUS }
 // validates :start_date, presence: true

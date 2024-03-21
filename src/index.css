@@ -17,10 +17,9 @@
   margin-top: 20px;
   margin-bottom: 20px;
   width: 33%;
-  border: 2px solid var(--green);
+  border: 1px solid var(--green);
   border-radius: 8px;
   padding: 16px;
-  box-shadow: 2px 2px 2px 0 var(--pink);
 }
 
 ul {
@@ -32,7 +31,11 @@ ul {
 }
 
 input {
+  background-color: var(--white);
   width: 33%;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  padding: 8px;
 }
 input.description {
   height: 64px;
@@ -46,16 +49,36 @@ button {
   background-color: var(--blue);
   border-radius: 8px;
   border: none !important;
-  box-shadow: 2px 2px 2px 0 var(--pink);
   color: var(--white);
   font-size: 16px;
-  padding: 8px 16px
+  padding: 8px;
 }
 
 button:hover {
   background-color: var(--green);
+  cursor: pointer;
 }
 
-.placeholder {
-  color: rgb(224, 218, 218);
+.like {
+  padding: 8px 10px;
+  margin-left: 16px
+
+}
+
+.post-actions {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.delete {
+  border: 1px solid var(--green);
+  padding: 1px 4px;
+  background-color: white;
+  font-size: 10px;
+  font-weight: bolder;
+
+}
+.delete:hover {
+  cursor: pointer;
+  background-color: var(--green);
 }

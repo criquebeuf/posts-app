@@ -4,7 +4,6 @@ import { useState } from 'react'
 export default function PostsApp() {
   const [posts, setPosts] = useState(initialPosts)
 
-  // ou 4?
   let nextId = 4
 
   function handleAddPost(title, description) {
@@ -16,6 +15,12 @@ export default function PostsApp() {
     ])
   }
 
+  function handleDeletePost(postId) {
+    setPosts(
+      posts.filter(post => post.id !== postId)
+    )
+  }
+
   return (
     <>
     <AddPost
@@ -23,6 +28,7 @@ export default function PostsApp() {
     />
     <PostsList
     posts={posts}
+    onDeletePost={handleDeletePost}
     />
     </>
   )
@@ -77,18 +83,41 @@ function AddPost({onAddPost}) {
   )
 }
 
+function Post({post, onDeletePost}) {
+  const [likes, setLikes] = useState(false);
 
-function Post({post}) {
+  function handleLikeClick() {
+    setLikes(!likes);
+  }
+
+  function handleCommentClick() {
+    // to do
+  }
+
   return (
     <>
-    <div className='post'>
-    <div className='title'>{post.title}</div>
-    <div>{post.description}</div>
-    </div>
+      <div className='post'>
+      <div className='post-actions'>
+          <button onClick={() => onDeletePost(post.id)}>
+          x
+          </button>
+        </div>
+        <div className='title'>{post.title}</div>
+        <div>{post.description}</div>
+        <div className='post-actions'>
+          <button className='like' onClick={handleLikeClick}>
+            {likes ? <span style={{color: 'pink'}}>❤</span> : <span style={{color: 'white'}}>❤</span>}
+          </button>
+          <button className='like' onClick={handleCommentClick}>
+            Comment
+          </button>
+        </div>
+      </div>
     </>
   )
 }
-function PostsList({posts}) {
+
+function PostsList({posts, onDeletePost}) {
   return (
     <>
     <h1>Posts ({posts.length}) </h1>
@@ -97,6 +126,7 @@ function PostsList({posts}) {
         <Post
         key={post.id}
         post={post}
+        onDeletePost={onDeletePost}
         />
       ))}
     </ul>
