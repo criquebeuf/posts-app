@@ -3,11 +3,10 @@ import { useState } from 'react'
 import AddPost from './Posts/AddPost.js';
 import PostsList from './Posts/PostsList.js';
 
+let nextId = 4
 
 export default function PostsApp() {
   const [posts, setPosts] = useState(initialPosts)
-
-  let nextId = 4
 
   function handleAddPost(title, description) {
     setPosts([

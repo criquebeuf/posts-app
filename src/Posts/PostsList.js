@@ -4,6 +4,7 @@ import { CommentsProvider, useComments } from '../Comments/CommentsContext';
 import CommentsList from '../Comments/CommentsList';
 import AddComment from '../Comments/AddComment';
 
+import PropTypes from 'prop-types';
 
 export default function PostsList({posts, onDeletePost}) {
   return (
@@ -14,9 +15,9 @@ export default function PostsList({posts, onDeletePost}) {
         <CommentsProvider>
 
         <Post
-        key={post.id}
-        post={post}
-        onDeletePost={onDeletePost}
+          key={post.id}
+          post={post}
+          onDeletePost={onDeletePost}
         />
 
         </CommentsProvider>
@@ -30,6 +31,8 @@ function Post({post, onDeletePost}) {
   const [likes, setLikes] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const comments = useComments();
+  console.log(post);
+
 
   function handleLikeClick() {
     setLikes(!likes);
@@ -63,3 +66,12 @@ function Post({post, onDeletePost}) {
     </>
   )
 }
+
+Post.propTypes = {
+  post: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+  onDeletePost: PropTypes.func.isRequired,
+};

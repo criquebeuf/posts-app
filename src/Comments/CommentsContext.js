@@ -4,11 +4,12 @@ import { initialComments } from '../data.js';
 const CommentsContext = createContext();
 const UpdateCommentsContext = createContext();
 
+let nextId = 2;
+
 export const CommentsProvider = ({ children }) => {
   const [comments, setComments] = useState(initialComments);
 
   const addComment = (content) => {
-    let nextId = 2;
     const newComment = {
       id: nextId++,
       content,
