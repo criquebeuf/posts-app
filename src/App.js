@@ -1,12 +1,11 @@
 import './App.css';
 import PropTypes from 'prop-types';
 
-import Posts from './Posts.js';
-
+import PostsApp from './PostsApp.js';
 function App(props) {
   return (
     <div className="App">
-      <Posts />
+      <PostsApp />
     </div>
   );
 }

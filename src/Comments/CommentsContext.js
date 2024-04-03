@@ -1,43 +1,29 @@
-import { createContext, useContext, useReducer } from 'react';
-import { initialComments } from '../data.js'
+import { createContext, useContext, useState } from 'react';
+import { initialComments } from '../data.js';
 
+const CommentsContext = createContext();
+const UpdateCommentsContext = createContext();
 
-const CommentsContext = createContext(null);
-const CommentsDispatchContext = createContext(null);
+export const CommentsProvider = ({ children }) => {
+  const [comments, setComments] = useState(initialComments);
 
-export function CommentsProvider ({children}) {
-  const [comments, dispatch] = useReducer (
-    commentsReducer,
-    initialComments
-  );
+  const addComment = (content) => {
+    let nextId = 2;
+    const newComment = {
+      id: nextId++,
+      content,
+    };
+    setComments(currentComments => [...currentComments, newComment]);
+  };
 
   return (
-    <CommentsContext.Provider value ={comments}>
-      <CommentsDispatchContext.Provider value={dispatch}>
+    <CommentsContext.Provider value={comments}>
+      <UpdateCommentsContext.Provider value={addComment}>
         {children}
-      </CommentsDispatchContext.Provider>
+      </UpdateCommentsContext.Provider>
     </CommentsContext.Provider>
-  )
-}
+  );
+};
 
-export function useComments() {
-  return useContext(CommentsContext);
-}
-
-export function useCommentsDispatch() {
-  return useContext(CommentsDispatchContext);
-}
-
-function commentsReducer(comments, action) {
-  switch (action.type) {
-    case 'added': {
-      return [...comments, {
-        id: action.id,
-        content: action.content,
-      }];
-    }
-    default: {
-      throw Error('Unknown action: ' + action.type)
-    }
-  }
-}
+export const useComments = () => useContext(CommentsContext);
+export const useAddComment = () => useContext(UpdateCommentsContext);

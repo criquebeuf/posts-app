@@ -1,4 +1,4 @@
-import { useComments, useCommentsDispatch } from './CommentsContext.js';
+import { useComments } from './CommentsContext.js';
 
 export default function CommentsList() {
   const comments = useComments();
@@ -15,19 +15,10 @@ export default function CommentsList() {
 }
 
 function Comment({ comment }) {
-  const dispatch = useCommentsDispatch();
-  let commentContent;
   console.log(comment);
-
-  commentContent = (
-    <>
-    {comment.content}
-    </>
-  )
-
   return (
     <>
-    {commentContent}
+      {comment.content}
     </>
-  )
+  );
 }

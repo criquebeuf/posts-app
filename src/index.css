@@ -15,7 +15,7 @@ body {
 /* Inputs */
 
 input {
-  background-color: var(--white);
+  /* background-color: var(--white); */
   border: 1px solid var(--green);
   border-radius: 8px;
   width: 400px;
@@ -24,9 +24,7 @@ input {
 }
 
 .input-title {
-  font-weight: bold;
   height: 16px;
-  font-weight: bolder;
 }
 
 .input-description {
@@ -39,7 +37,7 @@ input {
 ul {padding: 0}
 
 .post {
-  background-color: var(--white);
+  /* background-color: var(--white); */
   margin-top: 20px;
   margin-bottom: 20px;
   border: 1px solid var(--green);
@@ -108,7 +106,9 @@ button:hover {
   margin-bottom: 8px;
   border-radius: 8px;
   padding: 8px 16px;
-  font-size: 14px
+  font-size: 14px;
+  background-color: var(--white);
+
 }
 
 .comment-input {
