@@ -2,19 +2,41 @@
   --blue: #006d77;
   --green: #83c5be;
   --white: #edf6f9;
-  --pink: #ffddd2;
-
+  --pink: #fb6f92;
 }
 
 body {
   margin: 0 auto;
-}
-
-.App {
   color: var(--blue);
   padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Inputs */
+
+input {
+  background-color: var(--white);
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  width: 400px;
+  color: var(--blue);
+  padding: 8px 16px;
+}
+
+.input-title {
+  font-weight: bold;
+  height: 16px;
+  font-weight: bolder;
+}
+
+.input-description {
+  height: 64px;
+  line-height: 150%;
+}
+
+/* Posts */
+
+ul {padding: 0}
 
 .post {
   background-color: var(--white);
@@ -26,34 +48,23 @@ body {
   width: 400px
 }
 
-ul {
-  padding: 0
-}
-
 .title {
   font-weight: bold;
+  height: 16px;
+  font-weight: bolder;
 }
 
 .description {
-  padding-bottom: 16px;
-}
-
-input {
-  background-color: var(--white);
-  border: 1px solid var(--green);
-  border-radius: 8px;
-  padding: 8px 16px;
-  width: 400px;
-  color: var(--blue);
-
-}
-input.description {
   height: 64px;
+  line-height: 150%;
+  padding: 12px 0px
 }
 
 .input-block {
   margin-bottom: 20px;
 }
+
+/* Buttons and actions */
 
 button {
   background-color: var(--blue);
@@ -72,7 +83,6 @@ button:hover {
 .like {
   padding: 8px 10px;
   margin-left: 16px
-
 }
 
 .post-actions {
@@ -81,15 +91,41 @@ button:hover {
 }
 
 .delete {
-  border: 1px solid var(--green);
   padding: 2px 4px;
-  background-color: white;
-  font-size: 10px;
+  font-size: 16px;
   font-weight: bolder;
-  border-radius: 4px;
 }
 
 .delete:hover {
   cursor: pointer;
   background-color: var(--green);
+  border-radius: 8px
+}
+
+.comment {
+  background-color:white;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px
+}
+
+.comment-input {
+  background-color:white;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 16px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  width: 256px;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
 }

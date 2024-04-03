@@ -24,3 +24,14 @@ export const initialPosts = [
     likes: false
   },
 ];
+
+export const initialComments = [
+  {
+    id: 0,
+    content: 'Love this, girl!',
+  },
+  {
+    id: 1,
+    content: 'Nooo way!',
+  }
+]
