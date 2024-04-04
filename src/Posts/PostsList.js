@@ -6,6 +6,9 @@ import AddComment from '../Comments/AddComment';
 
 import PropTypes from 'prop-types';
 
+import { useDispatch } from 'react-redux';
+import { likePost } from '../redux/slices/postsSlice';
+
 export default function PostsList({posts, onDeletePost}) {
   return (
     <>
@@ -33,9 +36,12 @@ function Post({post, onDeletePost}) {
   const comments = useComments();
   console.log(post);
 
+  // used for redux purposes
+  const dispatch = useDispatch();
 
   function handleLikeClick() {
     setLikes(!likes);
+    dispatch(likePost({ id: Date.now() }));
   }
 
   function handleCommentClick() {
