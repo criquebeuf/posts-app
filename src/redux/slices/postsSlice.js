@@ -1,27 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { initialPosts } from '../../data.js';
 
-const initialState = {
-  posts: [],
-};
+// Initial state is preloaded with dummy posts but could be an empty array []
+const initialState = initialPosts
 
-export const postsSlice = createSlice({
+const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
+    // Action to add a post
     addPost: (state, action) => {
-      state.posts.push(action.payload);
+      state.push(action.payload)
     },
+    // Action to delete a post by ID
     deletePost: (state, action) => {
-      state.posts.push(action.payload);
+      const index = state.findIndex(post => post.id === action.payload.id);
+      if (index !== -1) {
+        state.splice(index, 1);
+      }
     },
     likePost: (state, action) => {
-      state.posts.push(action.payload);
+      const index = state.findIndex(post => post.id === action.payload.id);
+      if (index !== -1) {
+        state[index].likes = !state[index].likes;
+      }
     }
-  },
+  }
 });
 
-export const { addPost } = postsSlice.actions;
-export const { deletePost } = postsSlice.actions;
-export const { likePost } = postsSlice.actions;
+// Export the action creators
+export const { addPost, deletePost, likePost } = postsSlice.actions;
 
+// Export the reducer
 export default postsSlice.reducer;

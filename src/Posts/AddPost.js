@@ -1,64 +1,43 @@
-import { useState } from 'react';
-
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPost } from '../redux/slices/postsSlice';
 
-export default function AddPost({onAddPost}) {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-
-  // used for redux purposes
+export default function AddPost() {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const dispatch = useDispatch();
 
-  function handleTitle(e) {
-    setTitle(e.target.value)
-  }
-
-  function handleDescription(e) {
-    setDescription(e.target.value)
-  }
+  const handleTitle = (e) => setTitle(e.target.value);
+  const handleDescription = (e) => setDescription(e.target.value);
 
   const handleSubmit = () => {
-    dispatch(addPost({ id: Date.now(), title }));
+    // cannot add an empty post
+    if (!title.trim() || !description.trim()) return;
+    dispatch(addPost({ id: Date.now(), title, description, likes: false }));
     setTitle('');
+    setDescription('');
   };
 
   return (
-      <>
+    <>
       <h1>New Post</h1>
-
       <div className="input-block">
-        <div>
-          <input
+        <input
           placeholder="Title"
           value={title}
           onChange={handleTitle}
           className='input-title'
-          />
-        </div>
+        />
       </div>
-
       <div className="input-block">
-        <div>
-          <input
+        <input
           placeholder="Content"
           value={description}
           onChange={handleDescription}
           className='input-description'
-          />
-        </div>
+        />
       </div>
-
-      <div>
-        <button onClick={() => {
-          setTitle('');
-          setDescription('');
-          onAddPost(title, description)
-          handleSubmit()
-        }}>
-        Add
-        </button>
-      </div>
-      </>
-  )
+      <button onClick={handleSubmit}>Add</button>
+    </>
+  );
 }
