@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addPost, deletePost } from './redux/slices/postsSlice';
-import AddPost from './Posts/AddPost.js';
-import PostsList from './Posts/PostsList.js';
+import { deletePost } from './redux/slices/postsSlice';
+import AddPost from './components/AddPost.js';
+import PostsList from './components/PostsList.js';
 
 export default function PostsApp() {
   const posts = useSelector((state) => state.posts); // Assuming `posts` is the state slice name

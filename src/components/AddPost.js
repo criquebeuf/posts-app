@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPost } from '../redux/slices/postsSlice';
+import { useInputState } from '../hooks/useInputState';
 
 export default function AddPost() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
   const dispatch = useDispatch();
+  const [title, handleTitleChange, resetTitle] = useInputState('');
+  const [description, handleDescriptionChange, resetDescription] = useInputState('');
 
-  const handleTitle = (e) => setTitle(e.target.value);
-  const handleDescription = (e) => setDescription(e.target.value);
-
-  const handleSubmit = () => {
-    // cannot add an empty post
+  const handleSubmit = (e) => {
+    e.preventDefault(); // To prevent form submission from reloading the page
     if (!title.trim() || !description.trim()) return;
-    dispatch(addPost({ id: Date.now(), title, description, likes: false }));
-    setTitle('');
-    setDescription('');
+
+    dispatch(addPost({ id: Date.now(), title, description, likes: false, comments: [] }));
+    resetTitle();
+    resetDescription();
   };
 
   return (
@@ -25,7 +23,7 @@ export default function AddPost() {
         <input
           placeholder="Title"
           value={title}
-          onChange={handleTitle}
+          onChange={handleTitleChange}
           className='input-title'
         />
       </div>
@@ -33,7 +31,7 @@ export default function AddPost() {
         <input
           placeholder="Content"
           value={description}
-          onChange={handleDescription}
+          onChange={handleDescriptionChange}
           className='input-description'
         />
       </div>

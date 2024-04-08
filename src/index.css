@@ -78,9 +78,9 @@ button:hover {
   cursor: pointer;
 }
 
-.like {
+.like-or-comment {
   padding: 8px 10px;
-  margin-left: 16px
+  margin-left: 8px
 }
 
 .post-actions {
@@ -101,14 +101,12 @@ button:hover {
 }
 
 .comment {
-  background-color:white;
   margin-top: 8px;
   margin-bottom: 8px;
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 14px;
   background-color: var(--white);
-
 }
 
 .comment-input {
@@ -119,7 +117,7 @@ button:hover {
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 14px;
-  width: 256px;
+  width: 300px;
 }
 
 .hidden {
