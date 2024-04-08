@@ -12,6 +12,7 @@ This app is a simple application using **React and Redux** with the following fe
 ### Clone the Repository
 
 ```git clone https://github.com/yourusername/posts-app.git```
+
 ```cd posts-app```
 
 ### Install Dependencies

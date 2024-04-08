@@ -11,7 +11,7 @@ export default function AddComment({ postId }) {
     if (!commentContent.trim()) return; // Avoid adding empty comments
 
     dispatch(addComment({ postId, comment: commentContent }));
-    resetComment(''); // Reset comment input after submission
+    resetComment('');
   };
 
   return (
